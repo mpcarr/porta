@@ -14,8 +14,10 @@ import * as _ from 'lodash';
 import { Http } from "@angular/http";
 import { Injectable, Optional } from "@angular/core";
 import { ToastController, LoadingController } from 'ionic-angular';
+import { PortaAPIRouteAccess } from "./routes/access";
 export var PortaAPIManager = (function () {
     function PortaAPIManager(config, http, toastCtrl, loadingCtrl) {
+        var _this = this;
         this.http = http;
         this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
@@ -26,6 +28,20 @@ export var PortaAPIManager = (function () {
             this.endpoint = 'http://localhost:8000/';
         }
         console.log('porta endpoint set to:' + this.endpoint);
+        this.access = new PortaAPIRouteAccess(http, this.endpoint);
+        this.access.errorItem$.subscribe(function (err) {
+            if (!err.options || (err.options && (_.isUndefined(err.options.toast) || err.options.toast))) {
+                _this.displayError(err.message);
+            }
+        });
+        this.access.loading$.subscribe(function (loading) {
+            if (loading.dismiss) {
+                _this.dismissLoading();
+            }
+            else if (!loading.options || (loading.options && (_.isUndefined(loading.options.loading) || loading.options.loading))) {
+                _this.showLoading();
+            }
+        });
     }
     PortaAPIManager.prototype.displayError = function (message) {
         if (message == '0 - ') {

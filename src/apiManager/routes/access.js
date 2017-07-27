@@ -6,9 +6,9 @@ var __extends = (this && this.__extends) || function (d, b) {
 import { Observable } from "rxjs";
 import { MCCApiService } from 'mcc-api/src/services/mcc-api.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-export var APIRouteAccess = (function (_super) {
-    __extends(APIRouteAccess, _super);
-    function APIRouteAccess(http, endpoint) {
+export var PortaAPIRouteAccess = (function (_super) {
+    __extends(PortaAPIRouteAccess, _super);
+    function PortaAPIRouteAccess(http, endpoint) {
         var _this = this;
         _super.call(this);
         this.http = http;
@@ -24,7 +24,7 @@ export var APIRouteAccess = (function (_super) {
         };
         this.endpoint = endpoint;
     }
-    APIRouteAccess.prototype.login = function (opts) {
+    PortaAPIRouteAccess.prototype.login = function (opts) {
         var _this = this;
         this._loadingSource.next({ options: opts });
         return new Observable(function (observer) {
@@ -35,6 +35,6 @@ export var APIRouteAccess = (function (_super) {
             }, function (err) { _this.error(err, observer, opts); });
         });
     };
-    return APIRouteAccess;
+    return PortaAPIRouteAccess;
 }(MCCApiService));
 //# sourceMappingURL=access.js.map

@@ -16,6 +16,12 @@ export class PortaLogin {
     constructor(private navCtrl: NavController, private portaAPIManager: PortaAPIManager) {
 
 
+        this.portaAPIManager.access.login().subscribe(_=>{
+            console.log('RESULT');
+        },
+        err=>{
+           console.error(err);
+        });
 
     }
 }

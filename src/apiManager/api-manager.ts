@@ -3,10 +3,13 @@ import {Http} from "@angular/http";
 import {Injectable, Optional} from "@angular/core";
 import {ToastController, LoadingController, Loading} from 'ionic-angular';
 import {IPortaAPIManagerConfig} from "./api-interfaces";
+import {PortaAPIRouteAccess} from "./routes/access";
 
 @Injectable()
 export class PortaAPIManager
 {
+
+    access: PortaAPIRouteAccess;
     private endpoint: string;
     private loading: Loading;
 
@@ -17,6 +20,23 @@ export class PortaAPIManager
             this.endpoint = 'http://localhost:8000/';
         }
         console.log('porta endpoint set to:' + this.endpoint);
+
+
+        this.access = new PortaAPIRouteAccess(http, this.endpoint);
+        this.access.errorItem$.subscribe(err => {
+            if(!err.options || (err.options && (_.isUndefined(err.options.toast) || err.options.toast)))
+            {
+                this.displayError(err.message);
+            }
+        });
+        this.access.loading$.subscribe(loading => {
+            if(loading.dismiss){
+                this.dismissLoading();
+            } else if(!loading.options || (loading.options && (_.isUndefined(loading.options.loading) || loading.options.loading)))
+            {
+                this.showLoading();
+            }
+        });
     }
 
     private displayError(message: string){

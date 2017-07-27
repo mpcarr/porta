@@ -5,7 +5,7 @@ import { MCCApiService } from 'mcc-api/src/services/mcc-api.service';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {IError, ILoading, IOptions} from "../api-interfaces";
 
-export class APIRouteAccess extends MCCApiService
+export class PortaAPIRouteAccess extends MCCApiService
 {
     private _errorSource = new BehaviorSubject<IError>({message: '', options: {}});
     private _loadingSource = new BehaviorSubject<ILoading>({dismiss: true});

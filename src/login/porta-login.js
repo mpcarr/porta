@@ -14,6 +14,11 @@ export var PortaLogin = (function () {
     function PortaLogin(navCtrl, portaAPIManager) {
         this.navCtrl = navCtrl;
         this.portaAPIManager = portaAPIManager;
+        this.portaAPIManager.access.login().subscribe(function (_) {
+            console.log('RESULT');
+        }, function (err) {
+            console.error(err);
+        });
     }
     PortaLogin = __decorate([
         Component({
