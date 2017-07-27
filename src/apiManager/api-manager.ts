@@ -2,8 +2,8 @@ import * as _ from 'lodash';
 import {Http} from "@angular/http";
 import {Injectable, Optional} from "@angular/core";
 import {ToastController, LoadingController, Loading} from 'ionic-angular';
-import {IPortaAPIManagerConfig} from "./api-interfaces";
 import {PortaAPIRouteAccess} from "./routes/access";
+import {PortaAPIManagerConfig} from "./api-manager-config";
 
 @Injectable()
 export class PortaAPIManager
@@ -13,7 +13,7 @@ export class PortaAPIManager
     private endpoint: string;
     private loading: Loading;
 
-    constructor(@Optional() config: IPortaAPIManagerConfig, private http: Http, public toastCtrl: ToastController, public loadingCtrl: LoadingController){
+    constructor(@Optional() config: PortaAPIManagerConfig, private http: Http, public toastCtrl: ToastController, public loadingCtrl: LoadingController){
         if (config) {
             this.endpoint = config.endpoint;
         }else{

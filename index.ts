@@ -4,6 +4,7 @@ import { IonicModule } from 'ionic-angular';
 import {PortaLogin} from "./src/login/porta-login";
 import {PortaAPIManager} from "./src/apiManager/api-manager";
 import {IPortaAPIManagerConfig} from "./src/apiManager/api-interfaces";
+import {PortaAPIManagerConfig} from "./src/apiManager/api-manager-config";
 
 export {PortaLogin} from './src/login/porta-login';
 
@@ -15,9 +16,16 @@ export {PortaLogin} from './src/login/porta-login';
 })
 export class PortaModule {
     static forRoot(config: IPortaAPIManagerConfig): ModuleWithProviders {
+
+        let apiconfig = new PortaAPIManagerConfig();
+        apiconfig.endpoint = config.endpoint;
+
         return {
             ngModule: PortaModule,
-            providers: [{provide: PortaAPIManager, useValue: config}]
+            providers: [
+                {provide: PortaAPIManagerConfig, useValue: apiconfig},
+                PortaAPIManager
+            ]
         }
     }
 }

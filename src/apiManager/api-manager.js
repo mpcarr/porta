@@ -15,6 +15,7 @@ import { Http } from "@angular/http";
 import { Injectable, Optional } from "@angular/core";
 import { ToastController, LoadingController } from 'ionic-angular';
 import { PortaAPIRouteAccess } from "./routes/access";
+import { PortaAPIManagerConfig } from "./api-manager-config";
 export var PortaAPIManager = (function () {
     function PortaAPIManager(config, http, toastCtrl, loadingCtrl) {
         var _this = this;
@@ -82,7 +83,7 @@ export var PortaAPIManager = (function () {
     PortaAPIManager = __decorate([
         Injectable(),
         __param(0, Optional()), 
-        __metadata('design:paramtypes', [Object, Http, ToastController, LoadingController])
+        __metadata('design:paramtypes', [PortaAPIManagerConfig, Http, ToastController, LoadingController])
     ], PortaAPIManager);
     return PortaAPIManager;
 }());

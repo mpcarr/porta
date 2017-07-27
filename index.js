@@ -12,14 +12,20 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
 import { PortaLogin } from "./src/login/porta-login";
 import { PortaAPIManager } from "./src/apiManager/api-manager";
+import { PortaAPIManagerConfig } from "./src/apiManager/api-manager-config";
 export { PortaLogin } from './src/login/porta-login';
 export var PortaModule = (function () {
     function PortaModule() {
     }
     PortaModule.forRoot = function (config) {
+        var apiconfig = new PortaAPIManagerConfig();
+        apiconfig.endpoint = config.endpoint;
         return {
             ngModule: PortaModule,
-            providers: [{ provide: PortaAPIManager, useValue: config }]
+            providers: [
+                { provide: PortaAPIManagerConfig, useValue: apiconfig },
+                PortaAPIManager
+            ]
         };
     };
     PortaModule = __decorate([
