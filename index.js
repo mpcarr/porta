@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
-import { PortaLogin } from "./login/porta-login";
+import { PortaLogin } from "./src/login/porta-login";
 export var PortaModule = (function () {
     function PortaModule() {
     }
@@ -25,4 +25,4 @@ export var PortaModule = (function () {
     ], PortaModule);
     return PortaModule;
 }());
-//# sourceMappingURL=porta.module.js.map
+//# sourceMappingURL=index.js.map
