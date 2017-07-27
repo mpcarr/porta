@@ -21,13 +21,7 @@ export var PortaLogin = (function () {
                 '<ion-title>Porta Login</ion-title>' +
                 '</ion-navbar>' +
                 '</ion-header>' +
-                '<ion-content>' +
-                '<mcc-empty-list>' +
-                '<ion-icon name="add"></ion-icon>' +
-                '<h1>Porta Login</h1>' +
-                '<h4>Empty content for Porta Login</h4>' +
-                '</mcc-empty-list>' +
-                '</ion-content>'
+                '<ion-content></ion-content>'
         }), 
         __metadata('design:paramtypes', [NavController])
     ], PortaLogin);
