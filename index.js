@@ -11,10 +11,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
 import { PortaLogin } from "./src/login/porta-login";
+import { PortaAPIManager } from "./src/apiManager/api-manager";
 export { PortaLogin } from './src/login/porta-login';
 export var PortaModule = (function () {
     function PortaModule() {
     }
+    PortaModule.forRoot = function (config) {
+        return {
+            ngModule: PortaModule,
+            providers: [{ provide: PortaAPIManager, useValue: config }]
+        };
+    };
     PortaModule = __decorate([
         NgModule({
             imports: [CommonModule, IonicModule],
