@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
 import {PortaLogin} from "./src/login/porta-login";
 
+export {PortaLogin} from './src/login/porta-login';
+
 @NgModule({
     imports: [CommonModule, IonicModule],
     declarations: [PortaLogin],

@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
 import { PortaLogin } from "./src/login/porta-login";
+export { PortaLogin } from './src/login/porta-login';
 export var PortaModule = (function () {
     function PortaModule() {
     }
