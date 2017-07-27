@@ -25,6 +25,7 @@ export var PortaAPIManager = (function () {
         else {
             this.endpoint = 'http://localhost:8000/';
         }
+        console.log('porta endpoint set to:' + this.endpoint);
     }
     PortaAPIManager.prototype.displayError = function (message) {
         if (message == '0 - ') {

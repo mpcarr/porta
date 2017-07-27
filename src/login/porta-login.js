@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { PortaAPIManager } from "../apiManager/api-manager";
 export var PortaLogin = (function () {
-    function PortaLogin(navCtrl) {
+    function PortaLogin(navCtrl, portaAPIManager) {
         this.navCtrl = navCtrl;
+        this.portaAPIManager = portaAPIManager;
     }
     PortaLogin = __decorate([
         Component({
@@ -23,7 +25,7 @@ export var PortaLogin = (function () {
                 '</ion-header>' +
                 '<ion-content></ion-content>'
         }), 
-        __metadata('design:paramtypes', [NavController])
+        __metadata('design:paramtypes', [NavController, PortaAPIManager])
     ], PortaLogin);
     return PortaLogin;
 }());

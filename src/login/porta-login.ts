@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {PortaAPIManager} from "../apiManager/api-manager";
 
 @Component({
     selector: 'porta-login',
@@ -12,7 +13,7 @@ import { NavController } from 'ionic-angular';
 })
 export class PortaLogin {
 
-    constructor(private navCtrl: NavController) {
+    constructor(private navCtrl: NavController, private portaAPIManager: PortaAPIManager) {
 
 
 
