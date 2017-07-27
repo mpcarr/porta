@@ -23,7 +23,7 @@ export class PortaModule {
         return {
             ngModule: PortaModule,
             providers: [
-                {provide: PortaAPIManagerConfig, useValue: apiconfig},
+                {provide: PortaAPIManagerConfig, useClass: apiconfig},
                 PortaAPIManager
             ]
         }
