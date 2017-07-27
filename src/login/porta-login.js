@@ -16,7 +16,7 @@ export var PortaLogin = (function () {
     PortaLogin = __decorate([
         Component({
             selector: 'porta-login',
-            templateUrl: 'porta-login.html'
+            templateUrl: './porta-login.html'
         }), 
         __metadata('design:paramtypes', [NavController])
     ], PortaLogin);

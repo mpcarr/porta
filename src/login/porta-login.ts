@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 @Component({
     selector: 'porta-login',
-    templateUrl: 'porta-login.html'
+    templateUrl: './porta-login.html'
 })
 export class PortaLogin {
 
