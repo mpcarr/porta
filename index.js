@@ -23,7 +23,7 @@ export var PortaModule = (function () {
         return {
             ngModule: PortaModule,
             providers: [
-                { provide: PortaAPIManagerConfig, useClass: apiconfig },
+                PortaEndpointConfig,
                 PortaAPIManager
             ]
         };
