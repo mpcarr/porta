@@ -20,11 +20,12 @@ export var PortaAPIManager = (function () {
         this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
         this.config = config;
-        //if (config) {
-        //    this.endpoint = config.endpoint;
-        //}else{
-        this.endpoint = 'http://localhost:8000/';
-        //}
+        if (config) {
+            this.endpoint = config.endpoint;
+        }
+        else {
+            this.endpoint = 'http://localhost:8000/';
+        }
         console.log('porta endpoint set to:' + this.endpoint);
         this.access = new PortaAPIRouteAccess(http, this.endpoint);
         this.access.errorItem$.subscribe(function (err) {
