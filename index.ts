@@ -5,6 +5,7 @@ import {PortaLogin} from "./src/login/porta-login";
 import {PortaAPIManager} from "./src/apiManager/api-manager";
 import {IPortaAPIManagerConfig} from "./src/apiManager/api-interfaces";
 import {PortaAPIManagerConfig} from "./src/apiManager/api-manager-config";
+import {SecureStorage} from "@ionic-native/secure-storage";
 
 export {PortaLogin} from './src/login/porta-login';
 
@@ -20,7 +21,8 @@ export class PortaModule {
             ngModule: PortaModule,
             providers: [
                 {provide: PortaAPIManagerConfig, useValue: config},
-                PortaAPIManager
+                PortaAPIManager,
+                SecureStorage
             ]
         }
     }

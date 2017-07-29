@@ -10,16 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PortaAPIManager } from "../apiManager/api-manager";
+import { SecureStorage } from '@ionic-native/secure-storage';
 export var PortaLogin = (function () {
-    function PortaLogin(navCtrl, portaAPIManager) {
+    function PortaLogin(navCtrl, portaAPIManager, secureStorage) {
         this.navCtrl = navCtrl;
         this.portaAPIManager = portaAPIManager;
-        this.portaAPIManager.access.login().subscribe(function (_) {
-            console.log('RESULT');
-        }, function (err) {
-            console.error(err);
-        });
+        this.secureStorage = secureStorage;
     }
+    PortaLogin.prototype.createSecureStore = function () {
+        this.secureStorage.create('porta')
+            .then(function (storage) {
+            console.log('secure storage created');
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    };
     PortaLogin = __decorate([
         Component({
             selector: 'porta-login',
@@ -28,9 +34,11 @@ export var PortaLogin = (function () {
                 '<ion-title>Porta Login</ion-title>' +
                 '</ion-navbar>' +
                 '</ion-header>' +
-                '<ion-content></ion-content>'
+                '<ion-content>' +
+                '<button ion-button (click)="createSecureStore()"></button>' +
+                '</ion-content>'
         }), 
-        __metadata('design:paramtypes', [NavController, PortaAPIManager])
+        __metadata('design:paramtypes', [NavController, PortaAPIManager, SecureStorage])
     ], PortaLogin);
     return PortaLogin;
 }());
