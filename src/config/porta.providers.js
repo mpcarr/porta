@@ -1,8 +1,9 @@
-import { PortaAPIManagerConfig } from "../apiManager/api-manager-config";
-import { PortaAPIManager } from "../apiManager/api-manager";
-import { SecureStorage } from "@ionic-native/secure-storage";
-import { SecureStorageMock } from "../mocks/SecureStorageMock";
-export var PortaProviders = (function () {
+"use strict";
+var api_manager_config_1 = require("../apiManager/api-manager-config");
+var api_manager_1 = require("../apiManager/api-manager");
+var secure_storage_1 = require("@ionic-native/secure-storage");
+var SecureStorageMock_1 = require("../mocks/SecureStorageMock");
+var PortaProviders = (function () {
     function PortaProviders() {
     }
     PortaProviders.getProviders = function (config) {
@@ -10,21 +11,21 @@ export var PortaProviders = (function () {
         if (document.URL.includes('https://') || document.URL.includes('http://')) {
             // Use mock providers
             providers = [
-                { provide: PortaAPIManagerConfig, useValue: config },
-                PortaAPIManager,
-                { provide: SecureStorage, useClass: SecureStorageMock }
+                { provide: api_manager_config_1.PortaAPIManagerConfig, useValue: config },
+                api_manager_1.PortaAPIManager,
+                { provide: secure_storage_1.SecureStorage, useClass: SecureStorageMock_1.SecureStorageMock }
             ];
         }
         else {
             // Use device providers
             providers = [
-                { provide: PortaAPIManagerConfig, useValue: config },
-                PortaAPIManager,
-                SecureStorage
+                { provide: api_manager_config_1.PortaAPIManagerConfig, useValue: config },
+                api_manager_1.PortaAPIManager,
+                secure_storage_1.SecureStorage
             ];
         }
         return providers;
     };
     return PortaProviders;
 }());
-//# sourceMappingURL=porta.providers.js.map
+exports.PortaProviders = PortaProviders;

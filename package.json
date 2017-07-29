@@ -32,6 +32,7 @@
     "ionic-angular": "2.3.0",
     "lodash": "^4.17.4",
     "mcc-api": "git+https://mpcarr84@bitbucket.org/mpcarr84/mcc-api.git",
+    "crpytico": "git+https://mpcarr84@bitbucket.org/mpcarr84/cryptico.git",
     "rxjs": "5.0.1",
     "zone.js": "0.7.2"
   },
