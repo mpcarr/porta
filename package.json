@@ -28,6 +28,7 @@
     "@angular/platform-server": "2.4.8",
     "@ionic-native/core": "^3.6.0",
     "@ionic-native/secure-storage": "^4.1.0",
+    "@ionic/storage": "^2.0.1",
     "ionic-angular": "2.3.0",
     "lodash": "^4.17.4",
     "mcc-api": "git+https://mpcarr84@bitbucket.org/mpcarr84/mcc-api.git",

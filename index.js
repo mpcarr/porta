@@ -11,9 +11,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from 'ionic-angular';
 import { PortaLogin } from "./src/login/porta-login";
-import { PortaAPIManager } from "./src/apiManager/api-manager";
-import { PortaAPIManagerConfig } from "./src/apiManager/api-manager-config";
-import { SecureStorage } from "@ionic-native/secure-storage";
+import { PortaProviders } from "./src/config/porta.providers";
 export { PortaLogin } from './src/login/porta-login';
 export var PortaModule = (function () {
     function PortaModule() {
@@ -21,11 +19,7 @@ export var PortaModule = (function () {
     PortaModule.forRoot = function (config) {
         return {
             ngModule: PortaModule,
-            providers: [
-                { provide: PortaAPIManagerConfig, useValue: config },
-                PortaAPIManager,
-                SecureStorage
-            ]
+            providers: PortaProviders.getProviders(config)
         };
     };
     PortaModule = __decorate([
