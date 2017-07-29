@@ -12,12 +12,14 @@ import { Http } from "@angular/http";
 import { Injectable } from "@angular/core";
 import { ToastController, LoadingController } from 'ionic-angular';
 import { PortaAPIRouteAccess } from "./routes/access";
+import { PortaAPIManagerConfig } from "./api-manager-config";
 export var PortaAPIManager = (function () {
-    function PortaAPIManager(http, toastCtrl, loadingCtrl) {
+    function PortaAPIManager(http, toastCtrl, loadingCtrl, config) {
         var _this = this;
         this.http = http;
         this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
+        this.config = config;
         //if (config) {
         //    this.endpoint = config.endpoint;
         //}else{
@@ -77,7 +79,7 @@ export var PortaAPIManager = (function () {
     };
     PortaAPIManager = __decorate([
         Injectable(), 
-        __metadata('design:paramtypes', [Http, ToastController, LoadingController])
+        __metadata('design:paramtypes', [Http, ToastController, LoadingController, PortaAPIManagerConfig])
     ], PortaAPIManager);
     return PortaAPIManager;
 }());

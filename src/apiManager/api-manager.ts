@@ -13,7 +13,7 @@ export class PortaAPIManager
     private endpoint: string;
     private loading: Loading;
 
-    constructor(private http: Http, public toastCtrl: ToastController, public loadingCtrl: LoadingController){
+    constructor(private http: Http, public toastCtrl: ToastController, public loadingCtrl: LoadingController, private config: PortaAPIManagerConfig){
         //if (config) {
         //    this.endpoint = config.endpoint;
         //}else{
