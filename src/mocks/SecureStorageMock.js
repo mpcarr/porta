@@ -1,12 +1,11 @@
-"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var secure_storage_1 = require("@ionic-native/secure-storage");
-var storage_1 = require('@ionic/storage');
-var SecureStorageMock = (function (_super) {
+import { SecureStorage, SecureStorageObject } from "@ionic-native/secure-storage";
+import { Storage } from '@ionic/storage';
+export var SecureStorageMock = (function (_super) {
     __extends(SecureStorageMock, _super);
     function SecureStorageMock() {
         _super.apply(this, arguments);
@@ -17,13 +16,12 @@ var SecureStorageMock = (function (_super) {
         });
     };
     return SecureStorageMock;
-}(secure_storage_1.SecureStorage));
-exports.SecureStorageMock = SecureStorageMock;
-var SecureStorageObjectMock = (function (_super) {
+}(SecureStorage));
+export var SecureStorageObjectMock = (function (_super) {
     __extends(SecureStorageObjectMock, _super);
     function SecureStorageObjectMock() {
         _super.call(this, {});
-        this.localStorage = new storage_1.Storage({});
+        this.localStorage = new Storage({});
     }
     SecureStorageObjectMock.prototype.get = function (key) {
         var _this = this;
@@ -41,5 +39,5 @@ var SecureStorageObjectMock = (function (_super) {
         });
     };
     return SecureStorageObjectMock;
-}(secure_storage_1.SecureStorageObject));
-exports.SecureStorageObjectMock = SecureStorageObjectMock;
+}(SecureStorageObject));
+//# sourceMappingURL=SecureStorageMock.js.map

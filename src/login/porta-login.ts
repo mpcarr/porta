@@ -31,7 +31,7 @@ export class PortaLogin {
         // The length of the RSA key, in bits.
         var Bits = 1024;
 
-        var MattsRSAkey = cryptico.cryptico.generateRSAKey(PassPhrase, Bits);
+        //var MattsRSAkey = cryptico.cryptico.generateRSAKey(PassPhrase, Bits);
 
         this.secureStorage.create('porta')
             .then((storage: SecureStorageObject) => {
