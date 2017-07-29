@@ -18,12 +18,10 @@ export var PortaModule = (function () {
     function PortaModule() {
     }
     PortaModule.forRoot = function (config) {
-        var apiconfig = new PortaAPIManagerConfig();
-        apiconfig.endpoint = config.endpoint;
         return {
             ngModule: PortaModule,
             providers: [
-                PortaEndpointConfig,
+                { provide: PortaAPIManagerConfig, useValue: config },
                 PortaAPIManager
             ]
         };

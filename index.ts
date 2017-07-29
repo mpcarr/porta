@@ -15,15 +15,11 @@ export {PortaLogin} from './src/login/porta-login';
     exports: []
 })
 export class PortaModule {
-    static forRoot(config: IPortaAPIManagerConfig): ModuleWithProviders {
-
-        let apiconfig = new PortaAPIManagerConfig();
-        apiconfig.endpoint = config.endpoint;
-
+    static forRoot(config: PortaAPIManagerConfig): ModuleWithProviders {
         return {
             ngModule: PortaModule,
             providers: [
-                PortaEndpointConfig,
+                {provide: PortaAPIManagerConfig, useValue: config},
                 PortaAPIManager
             ]
         }

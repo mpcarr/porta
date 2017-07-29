@@ -4,8 +4,4 @@ import {Injectable} from "@angular/core";
 export class PortaAPIManagerConfig
 {
     endpoint: string;
-
-    constructor(){
-
-    }
 }

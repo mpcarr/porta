@@ -13,12 +13,12 @@ export class PortaAPIManager
     private endpoint: string;
     private loading: Loading;
 
-    constructor(@Optional() config: PortaAPIManagerConfig, private http: Http, public toastCtrl: ToastController, public loadingCtrl: LoadingController){
-        if (config) {
-            this.endpoint = config.endpoint;
-        }else{
+    constructor(private http: Http, public toastCtrl: ToastController, public loadingCtrl: LoadingController){
+        //if (config) {
+        //    this.endpoint = config.endpoint;
+        //}else{
             this.endpoint = 'http://localhost:8000/';
-        }
+        //}
         console.log('porta endpoint set to:' + this.endpoint);
 
 
