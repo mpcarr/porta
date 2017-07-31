@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PortaAPIManager } from "../apiManager/api-manager";
 import { SecureStorage } from '@ionic-native/secure-storage';
+import * as c from 'cryptico';
 export var PortaLogin = (function () {
     function PortaLogin(navCtrl, portaAPIManager, secureStorage) {
         this.navCtrl = navCtrl;
@@ -23,6 +24,7 @@ export var PortaLogin = (function () {
         // The length of the RSA key, in bits.
         var Bits = 1024;
         //var MattsRSAkey = cryptico.cryptico.generateRSAKey(PassPhrase, Bits);
+        new c.Cryptico().foo();
         this.secureStorage.create('porta')
             .then(function (storage) {
             console.log('secure storage created');

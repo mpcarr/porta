@@ -3,7 +3,7 @@ import {NavController} from 'ionic-angular';
 import {PortaAPIManager} from "../apiManager/api-manager";
 import {SecureStorage, SecureStorageObject} from '@ionic-native/secure-storage';
 
-import * as cryptico from 'cryptico';
+import * as c from 'cryptico';
 
 @Component({
     selector: 'porta-login',
@@ -32,6 +32,9 @@ export class PortaLogin {
         var Bits = 1024;
 
         //var MattsRSAkey = cryptico.cryptico.generateRSAKey(PassPhrase, Bits);
+
+        new c.Cryptico().foo();
+
 
         this.secureStorage.create('porta')
             .then((storage: SecureStorageObject) => {
